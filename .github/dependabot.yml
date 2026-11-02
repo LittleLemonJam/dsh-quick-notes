@@ -17,6 +17,16 @@ updates:
         update-types:
           - minor
           - patch
+    ignore:
+      # React is provided by the harness at runtime; a major bump has to be
+      # checked against the UI it is mounted into, and react/react-dom must move
+      # together, so a single-major PR only ever fails `npm ci`.
+      - dependency-name: react
+        update-types:
+          - version-update:semver-major
+      - dependency-name: react-dom
+        update-types:
+          - version-update:semver-major
 
   - package-ecosystem: github-actions
     directory: /
