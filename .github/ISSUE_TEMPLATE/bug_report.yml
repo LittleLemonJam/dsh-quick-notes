@@ -1,0 +1,95 @@
+name: Bug report
+description: Report something that does not work as expected.
+title: '[Bug] '
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug.
+
+        You may write in English or 中文. Before submitting, please search the
+        existing issues and read the FAQ: `docs/faq.md`.
+
+        **Never paste private note content or tokens.** Redact anything sensitive
+        from logs.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug and the actual behaviour.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      description: What you expected to happen instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The smallest reliable reproduction you can find.
+      placeholder: |
+        1. Open DSH and the Quick Notes window
+        2. Create a note and select some text
+        3. ...
+    validations:
+      required: true
+
+  - type: input
+    id: dsh-version
+    attributes:
+      label: DSH version
+      description: Shown in DSH settings / About, or from the `dsh --version` command.
+      placeholder: '0.2.1'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: Install method
+      options:
+        - DSH Plugins page → Add plugin → Install a third-party plugin
+        - Plugin market (Plugins → Discover, or the dshmarket plugin)
+        - dsh plugin CLI (npm)
+        - dsh plugin CLI (link: local path)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: 'Windows 11 / macOS 15 / Ubuntu 24.04'
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and screenshots
+      description: |
+        Browser DevTools console output, and DSH host log lines starting with
+        `dsh-quick-notes:`. Redact private content first.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched the existing issues and the FAQ.
+          required: true
+        - label: I removed private note content and secrets from this report.
+          required: true

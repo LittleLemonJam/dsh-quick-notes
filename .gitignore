@@ -1,0 +1,16 @@
+# 依赖与构建产物
+node_modules/
+coverage/
+*.log
+*.tgz
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 本地测试产物
+.tmp/
+dist/
+test-results/

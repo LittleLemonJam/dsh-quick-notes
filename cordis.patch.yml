@@ -1,0 +1,7 @@
+# dsh-quick-notes bundle patch
+# Inserts the Host half of the plugin. The Client half is declared by
+# package.json `dsh.client` and served as ./client.js by the module system.
+- insert:
+    - id: dsh-quick-notes
+      name: 'dsh-quick-notes'
+      config: {}

@@ -1,0 +1,98 @@
+{
+  "name": "dsh-quick-notes",
+  "version": "1.0.0",
+  "description": "A floating sticky-note pad for the DeepSeek Harness Web GUI: multiple notes, text editing, pasted images and local persistence.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "notes",
+    "sticky-notes",
+    "quick-notes",
+    "overlay",
+    "productivity"
+  ],
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "icon": "./icon.svg",
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "src/host",
+    "src/shared",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "market.json",
+    "docs/architecture.md",
+    "docs/user-guide.md",
+    "docs/development.md",
+    "docs/storage.md",
+    "docs/faq.md",
+    "docs/release-notes-1.0.0.md"
+  ],
+  "engines": {
+    "node": ">=22.13.0",
+    "dsh": ">=0.2.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:check": "node scripts/build.mjs --check",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "node scripts/check.mjs",
+    "test:unit": "node --test \"test/unit/*.test.mjs\"",
+    "test": "npm run build:check && npm run check && npm run test:unit",
+    "verify": "npm run format:check && npm test"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    },
+    "compatibility": {
+      "dsh": ">=0.2.0",
+      "node": ">=22.13.0"
+    }
+  },
+  "author": "LittleLemonJam",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LittleLemonJam/dsh-quick-notes.git"
+  },
+  "homepage": "https://github.com/LittleLemonJam/dsh-quick-notes#readme",
+  "bugs": {
+    "url": "https://github.com/LittleLemonJam/dsh-quick-notes/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.6.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "yaml": "^2.9.1"
+  }
+}

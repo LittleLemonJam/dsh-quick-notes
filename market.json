@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Quick Notes — DSH plugin",
+    "zh": "随想随记 — DSH 插件"
+  },
+  "description": {
+    "en": "A floating sticky-note pad for the DeepSeek Harness Web GUI.",
+    "zh": "DeepSeek Harness Web 界面的悬浮便签本。"
+  },
+  "metadata": {
+    "categories": {
+      "ui": {
+        "title": {
+          "en": "Interface",
+          "zh": "界面"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-quick-notes",
+      "title": {
+        "en": "Quick Notes",
+        "zh": "随想随记"
+      },
+      "description": {
+        "en": "A floating sticky-note pad for the DeepSeek Harness Web GUI with a note directory, text editing, pasted images and local persistence.",
+        "zh": "DeepSeek Harness Web 界面的悬浮便签本，支持便签目录、文本编辑、粘贴图片和本地持久化。"
+      },
+      "icon": "./icon.svg",
+      "author": "LittleLemonJam",
+      "homepage": "https://github.com/LittleLemonJam/dsh-quick-notes#readme",
+      "repository": {
+        "url": "https://github.com/LittleLemonJam/dsh-quick-notes"
+      },
+      "metadata": {
+        "category": "ui",
+        "keywords": ["notes", "sticky-notes", "quick-notes", "overlay", "productivity"]
+      },
+      "versions": [
+        {
+          "version": "1.0.0",
+          "publishTimestamp": 1793610000,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ]
+    }
+  ]
+}

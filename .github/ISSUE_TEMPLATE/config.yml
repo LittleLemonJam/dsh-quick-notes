@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/LittleLemonJam/dsh-quick-notes#readme
+    about: Read the README and docs before opening an issue.
+  - name: Usage and data questions
+    url: https://github.com/LittleLemonJam/dsh-quick-notes/blob/main/docs/faq.md
+    about: Where the notes are stored, backups, uninstall and other common questions.
