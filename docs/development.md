@@ -305,18 +305,37 @@ node --test "test/unit/sanitize.test.mjs"   # 只跑单个文件
 
 ## 7. 发布流程
 
-以 1.0.0 为例（历史版本发布记录见 [`CHANGELOG.md`](../CHANGELOG.md)）：
+以 1.0.0 为例（历史版本记录见 [`CHANGELOG.md`](../CHANGELOG.md)）。
+
+### 7.1 版本与构建
 
 1. 更新 `package.json` 的 `version`（语义化版本），并确认 `repository` / `homepage` /
    `bugs` 指向 `https://github.com/LittleLemonJam/dsh-quick-notes`；
 2. 在 `CHANGELOG.md` 里加对应版本条目；
 3. `npm run build`，提交更新后的 `client.js`；
 4. `npm run verify` 全绿；
-5. `npm publish --access public`（包名 `dsh-quick-notes`）；
-6. 更新 `market.json` 的 `versions`（新版本号 + `publishTimestamp`，格式 1 要求该字段）；
-7. 打 tag `v1.0.0`、创建 GitHub Release，并按
-   [`release-notes-1.0.0.md`](release-notes-1.0.0.md) 里的文案提交 awesome-dsh-plugin；
-8. 推送后 GitHub Actions 会在 Node 22 / 24 上各跑一遍 `npm ci && npm run verify`。
+5. 更新 `market.json` 的 `versions`（新版本号 + `publishTimestamp`，格式 1 要求该字段）；
+6. 打 tag `vX.Y.Z`、创建 GitHub Release（正文参考
+   [`release-notes-1.0.0.md`](release-notes-1.0.0.md)），并把 `npm pack` 产出的 `.tgz`
+   附到 Release 上；
+7. 推送后 GitHub Actions 会在 Node 22 / 24 上各跑一遍 `npm ci && npm run verify`。
+
+### 7.2 三个分发渠道（每个版本都要覆盖）
+
+| 渠道 | 每个版本要做什么 | 说明 |
+| --- | --- | --- |
+| **npm** | `npm publish --access public` | 必须做。DSH 插件页 **Add plugin → Install a third-party plugin** 里填包名 `dsh-quick-notes` 就是装它，也是插件市场一键安装的来源 |
+| **awesome-dsh-plugin** | 通常**无需操作** | 条目 `data/plugins/LittleLemonJam__dsh-quick-notes.yml` 不锁版本；仓库每天探测 npm 最新版本并重建索引 `https://awesome-dsh-plugin.com/index.json`（DSH「发现」页可添加的索引源）。只在改描述 / 分类 / 图标，或条目被移除时才提 PR |
+| **dsh-plugin.org** | 通常**无需操作** | 收录后按 `dsh-plugin` topic 定期刷新版本与 README；首次收录走 GitHub Issue（模板见 <https://dsh-plugin.org/zh/submit>）。只在条目信息需要修正时才重新提 Issue |
+
+发布后自查三项：`npm view dsh-quick-notes version` 已是新版本；GitHub Release
+附件可下载；awesome 索引里能搜到新版本（索引每日重建）；dsh-plugin.org 的插件页版本
+号已刷新。
+
+> npm 发布凭据：账号未启用 2FA 时，需要在 npm 网站生成带 **Bypass two-factor
+> authentication** 的 Granular Access Token，并用
+> `npm publish --access public --//registry.npmjs.org/:_authToken=<token>` 发布；不带
+> 该开关的 token 会被 registry 以 403 拒绝。发布完成后立即 `npm token revoke` 撤销。
 
 ## 8. 相关文档
 
