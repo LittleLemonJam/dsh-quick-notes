@@ -322,11 +322,11 @@ node --test "test/unit/sanitize.test.mjs"   # 只跑单个文件
 
 ### 7.2 三个分发渠道（每个版本都要覆盖）
 
-| 渠道 | 每个版本要做什么 | 说明 |
-| --- | --- | --- |
-| **npm** | `npm publish --access public` | 必须做。DSH 插件页 **Add plugin → Install a third-party plugin** 里填包名 `dsh-quick-notes` 就是装它，也是插件市场一键安装的来源 |
-| **awesome-dsh-plugin** | 通常**无需操作** | 条目 `data/plugins/LittleLemonJam__dsh-quick-notes.yml` 不锁版本；仓库每天探测 npm 最新版本并重建索引 `https://awesome-dsh-plugin.com/index.json`（DSH「发现」页可添加的索引源）。只在改描述 / 分类 / 图标，或条目被移除时才提 PR |
-| **dsh-plugin.org** | 通常**无需操作** | 收录后按 `dsh-plugin` topic 定期刷新版本与 README；首次收录走 GitHub Issue（模板见 <https://dsh-plugin.org/zh/submit>）。只在条目信息需要修正时才重新提 Issue |
+| 渠道                   | 每个版本要做什么              | 说明                                                                                                                                                                                                                              |
+| ---------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **npm**                | `npm publish --access public` | 必须做。DSH 插件页 **Add plugin → Install a third-party plugin** 里填包名 `dsh-quick-notes` 就是装它，也是插件市场一键安装的来源                                                                                                  |
+| **awesome-dsh-plugin** | 通常**无需操作**              | 条目 `data/plugins/LittleLemonJam__dsh-quick-notes.yml` 不锁版本；仓库每天探测 npm 最新版本并重建索引 `https://awesome-dsh-plugin.com/index.json`（DSH「发现」页可添加的索引源）。只在改描述 / 分类 / 图标，或条目被移除时才提 PR |
+| **dsh-plugin.org**     | 通常**无需操作**              | 收录后按 `dsh-plugin` topic 定期刷新版本与 README；首次收录走 GitHub Issue（模板见 <https://dsh-plugin.org/zh/submit>）。只在条目信息需要修正时才重新提 Issue                                                                     |
 
 发布后自查三项：`npm view dsh-quick-notes version` 已是新版本；GitHub Release
 附件可下载；awesome 索引里能搜到新版本（索引每日重建）；dsh-plugin.org 的插件页版本
