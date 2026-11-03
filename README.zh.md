@@ -60,11 +60,11 @@ DeepSeek Harness（DSH）Web 界面的悬浮便签本。在界面上留一个小
 ### 用命令行安装
 
 ```bash
-dsh plugin add dsh-quick-notes
+dsh plugin --profile web add dsh-quick-notes
 ```
 
-如果你有多个 DSH profile，在命令里加 `--profile <名称>`。装好后窗口没有出现时，重启
-一次 DSH，让本地数据服务加载起来。
+`web` 是 DSH Web 界面使用的 profile 名称，用别的 profile 时换成你的名称。装好后窗口
+没有出现时，重启一次 DSH，让本地数据服务加载起来。
 
 ### 从本地代码安装（开发）
 

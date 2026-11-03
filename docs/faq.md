@@ -111,8 +111,8 @@
    **安装第三方插件（Install a third-party plugin）**，填 `dsh-quick-notes` 并确认；
 2. **插件市场**：在 **插件 → 发现** 标签页（配置了索引源时）或社区 dshmarket 插件的
    **设置 → 插件市场** 里搜索「随想随记」（或 **Quick Notes**），点安装；
-3. **命令行**：`dsh plugin add dsh-quick-notes`（有多个 profile 时加
-   `--profile <名称>`）；
+3. **命令行**：`dsh plugin --profile web add dsh-quick-notes`（`web` 换成你的
+   profile 名称）；
 4. **本地代码**：在 **插件页 → 添加插件 → 安装第三方插件** 里选择仓库目录，或
    `dsh plugin add link:/本目录的绝对路径`。
 

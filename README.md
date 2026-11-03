@@ -75,11 +75,12 @@ index source configured, or the community dshmarket plugin under
 ### With the command line
 
 ```bash
-dsh plugin add dsh-quick-notes
+dsh plugin --profile web add dsh-quick-notes
 ```
 
-Use `--profile <name>` when you use more than one DSH profile. If the written
-window does not appear, restart DSH so the local data service can start.
+`web` is the profile name the DSH Web UI uses; replace it with your own profile
+name when you use a different one. If the written window does not appear, restart
+DSH so the local data service can start.
 
 ### From a local checkout (development)
 
